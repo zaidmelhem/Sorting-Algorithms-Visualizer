@@ -82,25 +82,16 @@ function insertionSort(arr) {
 ## Usage
 
 To use the Visualizer follow the following steps : <br>
-  1. Choose the algorithm you want visualize 
-  ![First Step](images/my-image.jpg)
-  2. Choose the length of array 
-  ![Second Step](images/my-image.jpg)
-  3. Click to 'Randomize' button to generate random array whose length is the length you  chose and whose values between 0-100 
-  ![Third Step](images/my-image.jpg) 
-  4. Finally click to 'solve' to start the visualize 
-  ![Fourth Step](images/my-image.jpg)
+  1. Choose the algorithm you want visualize <br>
+  ![First Step](images/step1.PNG)
+  2. Choose the length of array <br>
+  ![Second Step](images/step2.png)
+  3. Click to 'Randomize' button to generate random array whose length is the length you  chose and whose values between 0-100 <br>
+  ![Third Step](images/step3.png) 
+  4. Finally click to 'solve' to start the visualize <br>
+  ![Fourth Step](images/step4.png)
   
 ## Demo
 
 To see the Demo : <br>
-
-
-## Screenshots
-
-![Screen 1](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 2](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 3](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 4](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-
+https://zaidmelhem.github.io/Sorting-Algorithms-Visualizer/
