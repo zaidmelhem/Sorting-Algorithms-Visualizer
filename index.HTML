@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sorting Algorithms Visualizer</title>
+</head>
+<body>
+    <main>
+        <div class="control-buttons">
+            <h1>Sorting Algorithms Visualizer</h1>
+            <div>
+                <div>
+                    <label for="gender">Algorithm: </label>
+                    <input type="radio" id = "algorithms" name="algorithms" value="0" checked > Bubble Algorithm
+                    <input type="radio" id = "algorithms" name="algorithms" value="1" > Selection Algorithm
+                    <input type="radio" id = "algorithms" name="algorithms" value="2" > Insertion Sort<br>
+                </div>
+                <br>
+                <div>
+                    <label for="array-length">Array Length:</label>
+                    <input type="range" id="array-length" value="0" min="5" max="100" onchange="getArrayLength(this.value);">
+                    <output id ="output-range">0</output>
+                </div>
+                <br>
+                <div class="buttons">
+                    <button id="randomize" >Randomize</button>
+                    <button id="solve">Solve</button>
+                </div>
+            </div>
+        </div>
+        <div id ="array-graph">
+        </div>
+        <div id="complete"> </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
