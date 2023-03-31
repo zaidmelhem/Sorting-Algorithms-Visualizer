@@ -94,3 +94,4 @@ To use the Visualizer follow the following steps : <br>
 ## Demo
 
 To see the Demo : <br>
+https://zaidmelhem.github.io/Sorting-Algorithms-Visualizer/
