@@ -83,13 +83,13 @@ function insertionSort(arr) {
 
 To use the Visualizer follow the following steps : <br>
   1. Choose the algorithm you want visualize 
-  ![First Step](images/my-image.jpg)
+  ![First Step](images/step1.jpg)
   2. Choose the length of array 
-  ![Second Step](images/my-image.jpg)
+  ![Second Step](images/step2.jpg)
   3. Click to 'Randomize' button to generate random array whose length is the length you  chose and whose values between 0-100 
-  ![Third Step](images/my-image.jpg) 
+  ![Third Step](images/step3.jpg) 
   4. Finally click to 'solve' to start the visualize 
-  ![Fourth Step](images/my-image.jpg)
+  ![Fourth Step](images/step4.jpg)
   
 ## Demo
 
@@ -98,9 +98,9 @@ To see the Demo : <br>
 
 ## Screenshots
 
-![Screen 1](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 2](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 3](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Screen 4](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screen 1](images/screen1.jpg)
+![Screen 2](images/screen2.jpg)
+![Screen 3](images/screen3.jpg)
+![Screen 4](images/screen4.jpg)
 
 
