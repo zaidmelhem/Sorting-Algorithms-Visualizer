@@ -15,12 +15,12 @@ let arrrayLength ;
 let randomArray ;
 let itemGraph ;
 let isRun = false ;
-
+// To get value of input range that represent length of array
 const getArrayLength = (val)=> {
     outputRange.textContent = val;
     arrrayLength=val;
 }
-
+// Event listener for randomize button to generate random array whose length is determine on 'getArrayLength' function  
 randomize.addEventListener('click',()=>{
     if (arrrayLength){
      randomArray = Array.from({length: arrrayLength}, () => Math.floor(Math.random() * 100));
@@ -30,7 +30,7 @@ randomize.addEventListener('click',()=>{
     complete.textContent = "" ;
 } else alert("Please Select Array Length Before")
 })
-
+// Set control buttons properties when app run , to prevent click on any button through app running
 const runSolveProperties = ()=>{
     solve.disabled = true ;
     solve.style.backgroundColor = greenColor;
@@ -42,7 +42,7 @@ const runSolveProperties = ()=>{
         algorithms[i].disabled = true ;
     }
 }
-
+// Return control buttons properties to orginal style when app stop of running
 const stopSolveProperties= ()=>{
     solve.disabled = false ;
     solve.style.backgroundColor = whiteColor
@@ -60,7 +60,7 @@ const stopSolveProperties= ()=>{
     complete.textContent = "You Got An Sorted Array 🤭😎🎆🎊 🎉" ;
     outputRange.textContent = 0 ;
 }
-
+// Set solve button properties when mouse hover it and mouse out , this is call after app stop of running ,to return hover properties to solve button
 const onMouseEvent = ()=>{
     solve.onmouseover = ()=>{
         solve.style.background = blackColor ;
@@ -71,12 +71,12 @@ const onMouseEvent = ()=>{
        solve.style.color = blackColor
    } 
 }
-
+// this function used to call function that set control buttons properties and return it 
 const changeProperties = ()=>{
     if(isRun) runSolveProperties();
      else stopSolveProperties();
 }
-
+//Event listener to solve button to start visualize the selected algorithm
 solve.addEventListener('click',async ()=>{
     if(randomArray){
         isRun = true;
@@ -108,14 +108,14 @@ solve.addEventListener('click',async ()=>{
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
-
+// swap two nodes (node = > element that represent column on graph)  
 const swapNodes = (elementOne, elementTwo)=> {
     let dummy = document.createElement("span")
     elementOne.before(dummy)
     elementTwo.before(elementOne)
     dummy.replaceWith(elementTwo)
 }
-
+// swap two array elements
 const swapArrayElement = (elementIndex1 , elementIndex2)=>{
     var temp = randomArray[elementIndex1]
     randomArray[elementIndex1] = randomArray[elementIndex2]
