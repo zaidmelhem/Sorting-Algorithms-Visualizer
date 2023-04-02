@@ -33,7 +33,7 @@ randomize.addEventListener('click',()=>{
 // Set control buttons properties when app run , to prevent click on any button through app running
 const runSolveProperties = ()=>{
     solve.disabled = true ;
-    solve.style.backgroundColor = greenColor;
+    changeBackgroundColor(solve,greenColor)
     solve.style.color = whiteColor
     solve.style.border = "none"
     randomize.disabled = true ;
@@ -45,14 +45,14 @@ const runSolveProperties = ()=>{
 // Return control buttons properties to orginal style when app stop of running
 const stopSolveProperties= ()=>{
     solve.disabled = false ;
-    solve.style.backgroundColor = whiteColor
+    changeBackgroundColor(solve,whiteColor)
     solve.style.color = blackColor
     solve.style.border = "1px solid black"
     randomize.disabled = false ;
     inputRange.disabled = false ;
     inputRange.value = 0 ;
     randomArray = 0 ;
-    onMouseEvent();
+    onMouseEvent(solve);
     for (let i in algorithms ){
         algorithms[i].disabled = false ;
     }
@@ -61,23 +61,21 @@ const stopSolveProperties= ()=>{
     outputRange.textContent = 0 ;
 }
 // Set solve button properties when mouse hover it and mouse out , this is call after app stop of running ,to return hover properties to solve button
-const onMouseEvent = ()=>{
-    solve.onmouseover = ()=>{
-        solve.style.background = blackColor ;
-        solve.style.color = whiteColor ;
+const onMouseEvent = (element)=>{
+    element.onmouseover = ()=>{
+        changeBackgroundColor(element,blackColor)
+        element.style.color = whiteColor ;
        }
-   solve.onmouseout =()=>{
-       solve.style.backgroundColor = whiteColor
-       solve.style.color = blackColor
+    element.onmouseout =()=>{
+        changeBackgroundColor(element,whiteColor)
+        element.style.color = blackColor
    } 
 }
-
 // this function used to call function that set control buttons properties and return it 
 const changeProperties = ()=>{
     if(isRun) runSolveProperties();
      else stopSolveProperties();
 }
-
 //Event listener to solve button to start visualize the selected algorithm
 solve.addEventListener('click',async ()=>{
     if(randomArray){
@@ -125,6 +123,11 @@ const swapArrayElement = (elementIndex1 , elementIndex2)=>{
     randomArray[elementIndex2] = temp
 }
 
+// Change background color of element ,This introduces the animation of element
+const changeBackgroundColor = (element,color)=>{
+    element.style.backgroundColor = color ;
+}
+
 const bubbleSort = async ()=>{
     var j ;
     await sleep(200)
@@ -133,21 +136,21 @@ const bubbleSort = async ()=>{
                 let currentElement = itemGraph[j] ;
                 let nextElement = itemGraph[j+1]
                     await sleep(200)
-                    currentElement.style.background = greenColor
-                    itemGraph[j+1].style.background = greenColor
+                    changeBackgroundColor(currentElement,greenColor)
+                    changeBackgroundColor(itemGraph[j+1],greenColor)
                     await sleep(200)
                     if(randomArray[j] > randomArray[j+1]){
                         await sleep(150)
                         swapNodes(currentElement,nextElement)
-                        nextElement.style.background = blueColor
-                        currentElement.style.background = greenColor
+                        changeBackgroundColor(nextElement,blueColor)
+                        changeBackgroundColor(currentElement,greenColor)
                         swapArrayElement(j,j+1)
                     } else{
-                        currentElement.style.background = blueColor
-                        nextElement.style.background = blueColor
+                        changeBackgroundColor(currentElement,blueColor)
+                        changeBackgroundColor(nextElement,blueColor)
                     }
             }
-            itemGraph[j].style.background = orangeColor
+            changeBackgroundColor(itemGraph[j],orangeColor)
         }
 }
 
@@ -157,57 +160,57 @@ const selectionSort = async()=>{
     for(i = 0; i <arrrayLength-1 ; i++) {
         await sleep(200)
         let min = i;
-        itemGraph[min].style.background = yalloColor;
+        changeBackgroundColor(itemGraph[min],yalloColor)
         await sleep(200)
         for( j = i+1; j < arrrayLength; j++){
             await sleep(200)
-            itemGraph[j].style.background = greenColor;
+            changeBackgroundColor(itemGraph[j],greenColor)
             await sleep(200)
             if(randomArray[j] < randomArray[min]) {
                 await sleep(150)
-                itemGraph[min].style.background = blueColor;
+                changeBackgroundColor(itemGraph[min],blueColor)
                 await sleep(100)
                 min=j; 
                 await sleep(200)
-                itemGraph[min].style.background = yalloColor;
+                changeBackgroundColor(itemGraph[min],yalloColor)
                 await sleep(270)
             } else {
-                itemGraph[j].style.background = blueColor;
+                changeBackgroundColor(itemGraph[j],blueColor)
             }
          }
          if (min != i) {
             swapNodes(itemGraph[i],itemGraph[min])
             swapArrayElement(i,min)
         }
-        itemGraph[i].style.background = orangeColor;
+        changeBackgroundColor(itemGraph[i],orangeColor)
     }
-    itemGraph[i].style.background = orangeColor
+    changeBackgroundColor(itemGraph[i],orangeColor)
 }
 
 const insertionSort = async () =>{
     await sleep(200)
     for (let i = 1; i < arrrayLength; i++) {
       await sleep(300)
-      itemGraph[i].style.background = yalloColor;
+      changeBackgroundColor(itemGraph[i],yalloColor)
       let key = randomArray[i]
       var keyNode = itemGraph[i]
       let j;
       for (j = i - 1; j >= 0 ; j--) {
         await sleep(300)
-        itemGraph[j].style.background = greenColor;
+        changeBackgroundColor(itemGraph[j],greenColor)
         await sleep(300)
         if (randomArray[j] > key){
             let firstNode = itemGraph[j]
             let clonedNode = firstNode.cloneNode(true)
             await sleep(300)
             itemGraph[j+1].replaceWith(clonedNode)
-            itemGraph[j].style.background = blueColor;
-            itemGraph[j+1].style.background = blueColor;
+            changeBackgroundColor(itemGraph[j],blueColor)
+            changeBackgroundColor(itemGraph[j+1],blueColor)
             randomArray[j + 1] = randomArray[j]
         } else {
             await sleep(300)
-            itemGraph[j].style.background = blueColor;
-            itemGraph[j+1].style.background = blueColor;
+            changeBackgroundColor(itemGraph[j],blueColor)
+            changeBackgroundColor(itemGraph[j+1],blueColor)
             break;
         } 
       }
@@ -215,12 +218,11 @@ const insertionSort = async () =>{
       let clonedKeyNode = keyNode.cloneNode(true)
       await sleep(300)
       itemGraph[j+1].replaceWith(clonedKeyNode)
-      itemGraph[j+1].style.background = blueColor; 
+      changeBackgroundColor(itemGraph[j+1],blueColor)
       await sleep(100)
-      itemGraph[i-1].style.background = blueColor; 
+      changeBackgroundColor(itemGraph[i-1],blueColor)
       randomArray[j + 1] = key
     }
-    for (let i in randomArray) itemGraph[i].style.background = orangeColor; 
-
+    for (let i in randomArray) changeBackgroundColor(itemGraph[i],orangeColor)
   }
   
